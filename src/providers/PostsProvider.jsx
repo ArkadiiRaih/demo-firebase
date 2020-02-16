@@ -11,6 +11,7 @@ function PostsProvider({ children }) {
     const unsibscribeFromFirestore = firestore
       .collection("posts")
       .orderBy("createdAt", "desc")
+      .limit(10)
       .onSnapshot(snapshot => {
         const apiPosts = snapshot.docs.map(collectIdsAndDocs);
         setPosts(apiPosts);

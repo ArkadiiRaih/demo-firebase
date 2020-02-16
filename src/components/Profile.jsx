@@ -21,7 +21,9 @@ function Profile({ match: { params } }) {
   useEffect(() => {
     const postsRef = firestore
       .collection("posts")
-      .where("user.uid", "==", params.uid);
+      .where("user.uid", "==", params.uid)
+      .limit(10);
+
     postsRef
       .get()
       .then(snaps => {
@@ -31,6 +33,7 @@ function Profile({ match: { params } }) {
       })
       .then(posts => setPosts(posts));
   }, [params.uid]);
+
   return (
     <div className="flex-wrapper_column flex-wrapper_height_100vh">
       <main className="layout mt_m flex-s_justify-center layout_fill-s">

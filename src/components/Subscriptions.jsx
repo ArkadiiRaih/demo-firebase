@@ -3,10 +3,12 @@ import User from "./User.jsx";
 import { themeConstants } from "./constants.js";
 import { UserContext } from "../providers/UserProvider.jsx";
 import { getUserDocument, firestore } from "../firestore.js";
+import { collectIdsAndDocs } from "../utilities.js";
 
 function Subscriptions({ match: { params } }) {
   const user = useContext(UserContext);
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getUserProfile = useCallback(() => {
     if (user.uid === params.uid) {
@@ -25,14 +27,17 @@ function Subscriptions({ match: { params } }) {
       .then(proms =>
         proms.map(prom =>
           prom
-            .then(snap => snap.data())
-            .then(user => setUsers(users => [...users, user]))
+            .then(snap => ({ uid: snap.id, ...snap.data() }))
+            .then(user => {
+              setUsers(users => [...users, user]);
+              if (!loading) setLoading(false);
+            })
         )
       );
-  }, [getUserProfile, params.mode]);
+  }, [getUserProfile, params.mode, setLoading, loading]);
   return (
     <div className="layout mt_m">
-      {users ? (
+      {loading ? (
         users.map(user => (
           <div
             key={user.uid}

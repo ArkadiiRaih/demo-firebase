@@ -7,7 +7,7 @@ function Comments({ postRef, children }) {
   const [comments, setComments] = useState([]);
   const [isLoadingComments, setLoadingComments] = useState(true);
 
-  const commentsRef = (() => postRef.collection("comments"))();
+  const commentsRef = postRef.collection("comments");
 
   useEffect(() => {
     const unsubscribeFromComments = commentsRef.onSnapshot(snapshot => {
@@ -16,7 +16,7 @@ function Comments({ postRef, children }) {
       setLoadingComments(false);
     });
     return unsubscribeFromComments;
-  }, [commentsRef]);
+  }, []);
 
   return (
     <div className="comments layout">

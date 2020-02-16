@@ -6,6 +6,7 @@ import Comments from "./Comments.jsx";
 import AddComment from "./AddComment.jsx";
 import { useParams } from "react-router";
 import Loader from "./Loader.jsx";
+import { forEachObjIndexed } from "ramda";
 
 function PostPage() {
   const [post, setPost] = useState(null);
@@ -22,12 +23,27 @@ function PostPage() {
     });
 
     return unsubscribeFromPost;
-  }, [postRef]);
+  }, []);
+
+  if (isLoadingPost)
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Loader />
+      </div>
+    );
 
   return (
     <div className="flex-wrapper_column flex-wrapper_height_100vh">
       <main className="layout mt_m">
-        {isLoadingPost ? <Loader /> : <Post post={post} theme="main" />}
+        <Post post={post} theme="main" />
       </main>
       <div className="gray_wrapper flex-wrapper__rest">
         <Comments postRef={postRef}>

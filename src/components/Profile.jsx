@@ -4,6 +4,7 @@ import User from "./User.jsx";
 import Post from "./Post.jsx";
 import { themeConstants } from "./constants.js";
 import Loader from "./Loader.jsx";
+import { collectIdsAndDocs } from "../utilities.js";
 
 function Profile({ match: { params } }) {
   const [loadingUser, setLoadingUser] = useState(true);
@@ -29,7 +30,7 @@ function Profile({ match: { params } }) {
       .get()
       .then(snaps => {
         const apiPosts = [];
-        snaps.forEach(doc => apiPosts.push(doc.data()));
+        snaps.forEach(doc => apiPosts.push(collectIdsAndDocs(doc)));
         return apiPosts;
       })
       .then(posts => setPosts(posts));

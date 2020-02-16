@@ -1,0 +1,28 @@
+.edit {
+  font-size: 1.3rem;
+  display: block;
+  text-align: center;
+
+  &:hover {
+    color: $green-70;
+    text-decoration: none;
+    border-color: $green-70;
+  }
+}
+
+.editable-image {
+  text-align: center;
+}
+
+.editable_text {
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 1.5rem;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.editing {
+  border: 1px solid $green-70;
+}

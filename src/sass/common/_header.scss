@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  height: $header-height;
+  padding: 20px 10px;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &__layout {
+    height: 100%;
+    width: 67%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    line-height: 1.7rem;
+  }
+
+  &_sticky {
+    border-bottom: 1px solid $dark-20;
+    background-color: $white-70;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .header__layout {
+    width: 90%;
+  }
+}
+
+.logo {
+  color: $dark-100;
+}

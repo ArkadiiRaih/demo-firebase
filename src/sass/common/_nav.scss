@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  & > * {
+    margin-left: 10px;
+  }
+
+  &__link {
+    display: block;
+    color: $dark-60;
+    cursor: pointer;
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
+
+    &:hover {
+      color: $dark-90;
+    }
+  }
+}

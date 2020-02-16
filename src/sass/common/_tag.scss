@@ -1,0 +1,19 @@
+.tags {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  &__item {
+    font-size: 1rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    font-weight: 500;
+    color: $dark-55;
+    background-color: $dark-05;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 10px;
+  }
+}

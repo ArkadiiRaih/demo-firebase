@@ -1,0 +1,33 @@
+.comments {
+  padding: 10px 50px;
+
+  &__title {
+    font-size: 1.4rem;
+    color: $dark-80;
+  }
+
+  @media only screen and (max-width: 420px) {
+    padding: 10px 10px;
+  }
+}
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid $dark-10;
+  background-color: #fff;
+  box-shadow: 0 0 5px $dark-04;
+  border-radius: 6px;
+
+  &__body {
+    padding: 15px 10px 5px;
+    font-size: 1.2rem;
+    color: $dark-75;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}

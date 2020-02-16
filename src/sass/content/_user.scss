@@ -1,0 +1,160 @@
+@mixin s {
+  min-width: 35px;
+  max-width: 35px;
+  height: 35px;
+}
+@mixin m {
+  min-width: 55px;
+  max-width: 55px;
+  height: 55px;
+}
+@mixin l {
+  min-width: 105px;
+  max-width: 105px;
+  height: 105px;
+}
+@mixin xl {
+  min-width: 155px;
+  max-width: 155px;
+  height: 155px;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__data {
+    flex-grow: 2;
+    & > * {
+      margin-right: 10px;
+      flex: 1 0 auto;
+    }
+    @media only screen and (max-width: 420px) {
+      text-align: center;
+    }
+  }
+
+  & > * {
+    margin-right: 10px;
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    &_s {
+      @extend .user__avatar;
+      @include s;
+    }
+
+    &_m {
+      @extend .user__avatar;
+      @include m;
+    }
+
+    &_l {
+      @extend .user__avatar;
+      @include l;
+    }
+
+    &_xl {
+      @extend .user__avatar;
+      @include xl;
+    }
+  }
+
+  &__name {
+    color: #000;
+    font-weight: 300;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+
+    &_s {
+      @extend .user__name;
+      font-size: 1.1rem;
+    }
+
+    &_m {
+      @extend .user__name;
+      font-size: 1.3rem;
+    }
+
+    &_l {
+      @extend .user__name;
+      font-size: 2.3rem;
+      font-weight: 500;
+    }
+
+    &_comment {
+      color: $dark-green;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__bio {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: $dark-70;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  &__stats {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: $dark-50;
+    font-family: sans-serif;
+    padding: 10px 0;
+  }
+
+  &__stats > * {
+    margin-right: 10px;
+  }
+}
+
+p.user__name:hover {
+  text-decoration: none;
+}
+
+.avatar {
+  padding: 5px;
+  border-radius: 50%;
+  border-left: 2px solid $blue-70;
+  border-right: 2px solid $blue-70;
+  border-block-end: 1px solid $white;
+  border-block-start: 1px solid $white;
+
+  &_s {
+    @extend .avatar;
+    @include s;
+  }
+
+  &_m {
+    @extend .avatar;
+    @include m;
+  }
+
+  &_l {
+    @extend .avatar;
+    @include l;
+  }
+
+  &_xl {
+    @extend .avatar;
+    @include xl;
+  }
+}

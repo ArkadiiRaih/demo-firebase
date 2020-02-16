@@ -1,0 +1,38 @@
+.button {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  padding: 2px 5px;
+  cursor: pointer;
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &_follow {
+    @extend .button;
+    border-color: $blue-70;
+    color: $blue-70;
+
+    &:hover {
+      border-color: $blue-100;
+      color: $blue-100;
+    }
+  }
+
+  &_following {
+    @extend .button;
+    border-color: $green-70;
+    background-color: $green-70;
+    color: $white;
+
+    &:hover {
+      border-color: $green-100;
+      background-color: $green-100;
+    }
+  }
+
+  &_fill {
+    @extend .button;
+    width: 100%;
+  }
+}

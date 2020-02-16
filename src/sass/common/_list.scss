@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+
+  &__item {
+    margin-top: 20px;
+  }
+
+  &__title {
+    font-family: sans-serif;
+    color: $dark-50;
+    font-weight: 400;
+    border-bottom: 1px solid $dark-10;
+    padding: 0 10px;
+  }
+}

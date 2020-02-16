@@ -1,0 +1,35 @@
+.flex-wrapper {
+  display: flex;
+
+  &_height_100vh {
+    @extend .flex-wrapper;
+    min-height: 100vh;
+  }
+
+  &_column {
+    @extend .flex-wrapper;
+    flex-direction: column;
+  }
+  &_row {
+    @extend .flex-wrapper;
+    flex-direction: row;
+  }
+
+  &_row-reverse {
+    @extend .flex-wrapper;
+    flex-direction: row-reverse;
+  }
+
+  &_space-evely {
+    @extend .flex-wrapper;
+    justify-content: space-evenly;
+  }
+  &_align_center {
+    @extend .flex-wrapper;
+    align-items: center;
+  }
+
+  &__rest {
+    flex: 1 0 auto;
+  }
+}

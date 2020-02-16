@@ -3,6 +3,7 @@ import { getUserDocument, firestore } from "../firestore.js";
 import User from "./User.jsx";
 import Post from "./Post.jsx";
 import { themeConstants } from "./constants.js";
+import Loader from "./Loader.jsx";
 
 function Profile({ match: { params } }) {
   const [loadingUser, setLoadingUser] = useState(true);
@@ -39,7 +40,7 @@ function Profile({ match: { params } }) {
       <main className="layout mt_m flex-s_justify-center layout_fill-s">
         <div className="flex-wrapper flex-wrapper_row-reverse profile">
           {loadingUser ? (
-            <h1>Loading profile ...</h1>
+            <Loader />
           ) : (
             <User user={userProfile} theme="profile" />
           )}
@@ -49,7 +50,7 @@ function Profile({ match: { params } }) {
         <div className="list layout">
           <h2 className="list__title">Posts</h2>
           {!posts ? (
-            <h1>Loading posts</h1>
+            <Loader />
           ) : (
             posts.map(post => (
               <Post key={post.id} post={post} theme={themeConstants.PROFILE} />

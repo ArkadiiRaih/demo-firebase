@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Comment from "./Comment.jsx";
 import { collectIdsAndDocs } from "../utilities.js";
+import Loader from "./Loader.jsx";
 
 function Comments({ postRef, children }) {
   const [comments, setComments] = useState([]);
@@ -15,14 +16,14 @@ function Comments({ postRef, children }) {
       setLoadingComments(false);
     });
     return unsubscribeFromComments;
-  }, []);
+  }, [commentsRef]);
 
   return (
     <div className="comments layout">
       <p className="comments__title">Comments</p>
       {children(commentsRef)}
       {isLoadingComments ? (
-        <p>Loading comments...</p>
+        <Loader />
       ) : (
         comments.map(comment => <Comment key={comment.id} comment={comment} />)
       )}

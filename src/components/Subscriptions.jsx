@@ -3,7 +3,7 @@ import User from "./User.jsx";
 import { themeConstants } from "./constants.js";
 import { UserContext } from "../providers/UserProvider.jsx";
 import { getUserDocument, firestore } from "../firestore.js";
-import { collectIdsAndDocs } from "../utilities.js";
+import Loader from "./Loader.jsx";
 
 function Subscriptions({ match: { params } }) {
   const user = useContext(UserContext);
@@ -30,14 +30,16 @@ function Subscriptions({ match: { params } }) {
             .then(snap => ({ uid: snap.id, ...snap.data() }))
             .then(user => {
               setUsers(users => [...users, user]);
-              if (!loading) setLoading(false);
+              if (loading) setLoading(false);
             })
         )
       );
-  }, [getUserProfile, params.mode, setLoading, loading]);
+  }, [getUserProfile, params.mode, setLoading]);
   return (
     <div className="layout mt_m">
       {loading ? (
+        <Loader />
+      ) : (
         users.map(user => (
           <div
             key={user.uid}
@@ -46,8 +48,6 @@ function Subscriptions({ match: { params } }) {
             <User theme={themeConstants.SUBSCRIPTIONS} user={user} />
           </div>
         ))
-      ) : (
-        <h1>Loading...</h1>
       )}
     </div>
   );

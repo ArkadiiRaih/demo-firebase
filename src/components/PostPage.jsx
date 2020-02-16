@@ -5,6 +5,7 @@ import { collectIdsAndDocs } from "../utilities";
 import Comments from "./Comments.jsx";
 import AddComment from "./AddComment.jsx";
 import { useParams } from "react-router";
+import Loader from "./Loader.jsx";
 
 function PostPage() {
   const [post, setPost] = useState(null);
@@ -26,11 +27,7 @@ function PostPage() {
   return (
     <div className="flex-wrapper_column flex-wrapper_height_100vh">
       <main className="layout mt_m">
-        {isLoadingPost ? (
-          <p>Loding post...</p>
-        ) : (
-          <Post post={post} theme="main" />
-        )}
+        {isLoadingPost ? <Loader /> : <Post post={post} theme="main" />}
       </main>
       <div className="gray_wrapper flex-wrapper__rest">
         <Comments postRef={postRef}>

@@ -6,6 +6,7 @@ import Posts from "./Posts.jsx";
 import Profile from "./Profile.jsx";
 import PostPage from "./PostPage.jsx";
 import CreatePost from "./CreatePost.jsx";
+import Subscriptions from "./Subscriptions.jsx";
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
         <Route exact path="/post/:postId" component={PostPage} />
         <Route exact path="/create_post/" component={CreatePost} />
         <Route exact path="/profile/:uid" component={Profile} />
-        {/* <Route exact path="/" */}
+        <Route
+          exact
+          path="/subscriptions/:mode/:uid"
+          component={Subscriptions}
+        />
       </Switch>
     </>
   );

@@ -54,7 +54,11 @@ function User({ user, theme }) {
           <div className="user__bio">{user.bio ? user.bio : null}</div>
         ) : null}
         {stats ? (
-          <UserStats followers={user.followers} following={user.following}>
+          <UserStats
+            followers={user.followers}
+            following={user.following}
+            uid={user.uid}
+          >
             <FollowButtons uid={user.uid} />
           </UserStats>
         ) : (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUserDocument, firestore } from "../firestore.js";
 import User from "./User.jsx";
-import { collectIdsAndDocs } from "../utilities.js";
 import Post from "./Post.jsx";
 import { themeConstants } from "./constants.js";
 

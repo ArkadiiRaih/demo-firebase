@@ -1,7 +1,7 @@
 {
-  "name": "todo-mvc",
+  "name": "demo-firebase",
   "version": "1.0.0",
-  "description": "Todo app. I'm going to use react, react-router, redux, redux-thunk.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
@@ -26,12 +26,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "express": "^4.17.1",
     "file-loader": "^5.0.2",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
     "html-webpack-plugin": "^3.2.0",
-    "https": "^1.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",

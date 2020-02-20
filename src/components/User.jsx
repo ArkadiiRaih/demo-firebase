@@ -32,7 +32,7 @@ const themes = {
     avatar_size: "l",
     avatar_wrapper: true,
     name_size: "l",
-    stats: true,
+    stats: false,
     bio: true
   }
 };

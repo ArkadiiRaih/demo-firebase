@@ -41,10 +41,7 @@ function Subscriptions({ match: { params } }) {
         <Loader />
       ) : (
         users.map(user => (
-          <div
-            key={user.uid}
-            className="flex-wrapper flex-wrapper_row-reverse profile profile_border"
-          >
+          <div key={user.uid} className="flex-wrapper profile profile_border">
             <User theme={themeConstants.SUBSCRIPTIONS} user={user} />
           </div>
         ))

@@ -9,7 +9,7 @@ module.exports = ({ mode } = { mode: "development" }) => ({
     index: ["babel-polyfill", "./src/index.js"]
   },
   output: {
-    path: path.join(__dirname, "build"),
+    path: path.resolve(__dirname, "build"),
     filename: "[name].[hash].js"
   },
   module: {
@@ -52,7 +52,7 @@ module.exports = ({ mode } = { mode: "development" }) => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "./static/css/[name].css",
+      filename: "/static/css/[name].css",
       chunkFilename: "[id].css"
     }),
     new webpack.ProgressPlugin(),

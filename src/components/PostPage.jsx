@@ -6,7 +6,6 @@ import Comments from "./Comments.jsx";
 import AddComment from "./AddComment.jsx";
 import { useParams } from "react-router";
 import Loader from "./Loader.jsx";
-import { forEachObjIndexed } from "ramda";
 
 function PostPage() {
   const [post, setPost] = useState(null);
